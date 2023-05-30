@@ -24,7 +24,7 @@ let nota=0;
 while(nombreCompleto!="Fin"){
     nota =solicitoNota()
     if(nota>12 || nota<1) {
-        console.log("nota fuera del rango permitido 1..12");
+        alert("nota fuera del rango permitido 1..12");
     }
     else{
         notas= notas + nota;
@@ -32,4 +32,4 @@ while(nombreCompleto!="Fin"){
         i+=1;
     }
 }
-console.log("El promedio de notas por alumno es: " + dividir(notas,i))
+alert("El promedio de notas de la clase es: " + dividir(notas,i))
