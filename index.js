@@ -1,6 +1,6 @@
 
 function solicitoNombre(){
-    let nombreCompleto = prompt("Ingrese Nombre y Apellido: ");
+    let nombreCompleto = prompt("Ingrese Nombre y Apellido o de lo contrario ingrese Fin: ");
     return (nombreCompleto)
 }
 
@@ -13,13 +13,10 @@ function dividir(dividendo, divisor){
     return dividendo/divisor;
 }
 
-
-alert("Este programa calcula el promedio de las notas de una clase");
-alert("Para ello ingrese Nombre completo y nota adquirida por el alumno");
-alert("Para finalizar el listado escriba Fin");
+alert("Este programa calcula el promedio de notas de una clase \nPara ello ingrese nombre completo y nota adquirida por cada alumno \nPara finalizar el listado escriba Fin");
 let nombreCompleto = solicitoNombre();
 let i=0;
-let notas=0;
+let sumatoriaNotas=0;
 let nota=0;
 while(nombreCompleto!="Fin"){
     nota =solicitoNota()
@@ -27,9 +24,10 @@ while(nombreCompleto!="Fin"){
         alert("nota fuera del rango permitido 1..12");
     }
     else{
-        notas= notas + nota;
+        sumatoriaNotas= sumatoriaNotas + nota;
         nombreCompleto = solicitoNombre();
         i+=1;
     }
 }
-alert("El promedio de notas de la clase es: " + dividir(notas,i))
+alert("La clase cuenta con " + i + " alumnos");
+alert("El promedio de notas de la clase es: " + dividir(sumatoriaNotas,i));
