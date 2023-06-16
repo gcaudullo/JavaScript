@@ -55,8 +55,29 @@ while (nombreCompleto != "Fin") {
     }
 }
 alert("La clase cuenta con " + i + " alumnos");
-alert("los alumnos ingresados y sus notas son: ")
-for (let j = 0; j < alumnos.length; j++) {
-    alert(alumnos[j].getNombreCompleto() + " " + alumnos[j].getNota())
+
+let ordenDes = parseInt(prompt("A continuación presentaremos la lista de alumnos ingresados: \nSi quiere ordenarlos por nota de mayor a menor presione 1, de lo contrario marque 0: "));
+if (ordenDes == 1) {
+    // Ordenar el arreglo de alumnos por nota en orden descendente.
+    alumnos.sort((a, b) => b.nota - a.nota);
 }
-alert("El promedio de notas de la clase es: " + dividir(sumatoriaNotas, i));
+//Presento los alumnos y las notas de cada uno de ellos.
+alert("los alumnos ingresados y sus notas son: ");
+alumnos.forEach((alumno) => {
+    alert(alumno.getNombreCompleto() + " - Nota: " + alumno.getNota());
+});
+
+
+// Calculo el promerdio
+let promedio = dividir(sumatoriaNotas, i)
+alert("El promedio de notas de la clase es: " + promedio.toFixed(2));
+
+
+// Calculo la desviación estándar de las notas de la clase
+let sumatoriaStd = 0;
+alumnos.forEach((alumno) => {
+    sumatoriaStd += Math.pow(alumno.getNota() - promedio, 2);
+});
+
+const desviacionEstandar = Math.sqrt(sumatoriaStd / (i - 1));
+alert("La desviación estándar de notas de la clase es: " + desviacionEstandar.toFixed(2));
